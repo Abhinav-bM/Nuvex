@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, ArrowRight } from "lucide-react";
 import { useState } from "react";
 
 export function Contact() {
@@ -17,7 +17,6 @@ export function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
     setTimeout(() => {
       setIsSubmitting(false);
       setFormState({ name: "", email: "", company: "", message: "" });
@@ -35,96 +34,59 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-bg-secondary relative z-10">
+    <section id="contact" className="py-32 bg-bg-primary relative z-10">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row gap-16">
+        <div className="flex flex-col lg:flex-row gap-20">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -15 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="lg:w-1/3"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-text-primary mb-6">
-              Let's Talk
+            <h2 className="text-3xl md:text-5xl font-medium text-text-primary mb-6 tracking-tight">
+              Get in touch
             </h2>
-            <p className="text-lg text-text-secondary leading-relaxed mb-10">
-              Ready to start your next project or need to discuss a technical
-              challenge? Drop us a line.
+            <p className="text-lg text-text-secondary leading-relaxed mb-12 font-light">
+              Reach out to discuss your technical challenges, architecture
+              needs, or potential partnerships.
             </p>
 
             <div className="space-y-8">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                  <Mail size={24} />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-text-primary mb-1">
-                    Email Us
-                  </h4>
-                  <a
-                    href="mailto:hello@nuvex.com"
-                    className="text-text-secondary hover:text-primary transition-colors"
-                  >
-                    hello@nuvex.com
-                  </a>
-                </div>
+              <div className="flex flex-col gap-1">
+                <h4 className="text-sm font-semibold text-text-secondary uppercase tracking-widest">
+                  Email
+                </h4>
+                <a
+                  href="mailto:hello@nuvex.com"
+                  className="text-xl font-medium text-text-primary hover:text-text-secondary transition-colors"
+                >
+                  hello@nuvex.com
+                </a>
               </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                  <Phone size={24} />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-text-primary mb-1">
-                    Call Us
-                  </h4>
-                  <a
-                    href="tel:+15551234567"
-                    className="text-text-secondary hover:text-primary transition-colors"
-                  >
-                    +1 (555) 123-4567
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                  <MapPin size={24} />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-text-primary mb-1">
-                    Visit Us
-                  </h4>
-                  <p className="text-text-secondary">
-                    123 Innovation Drive
-                    <br />
-                    Tech District, Austin, TX 78701
-                  </p>
-                </div>
+              <div className="flex flex-col gap-1">
+                <h4 className="text-sm font-semibold text-text-secondary uppercase tracking-widest">
+                  Headquarters
+                </h4>
+                <p className="text-lg text-text-primary">
+                  123 Innovation Drive
+                  <br />
+                  Tech District, Austin, TX
+                </p>
               </div>
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 15 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="lg:w-2/3"
           >
-            <form
-              onSubmit={handleSubmit}
-              className="bg-bg-primary p-8 md:p-12 rounded-3xl border border-bg-secondary shadow-lg"
-            >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-text-secondary mb-2"
-                  >
-                    Name
-                  </label>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div className="relative">
                   <input
                     type="text"
                     id="name"
@@ -132,17 +94,17 @@ export function Contact() {
                     value={formState.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-bg-secondary border border-transparent focus:border-primary focus:bg-bg-primary focus:outline-none transition-all text-text-primary"
-                    placeholder="John Doe"
+                    className="block w-full px-0 py-3 text-text-primary bg-transparent border-0 border-b border-border-color appearance-none focus:outline-none focus:ring-0 focus:border-text-primary peer transition-colors"
+                    placeholder=" "
                   />
-                </div>
-                <div>
                   <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-text-secondary mb-2"
+                    htmlFor="name"
+                    className="absolute text-text-secondary duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   >
-                    Email
+                    Name
                   </label>
+                </div>
+                <div className="relative">
                   <input
                     type="email"
                     id="email"
@@ -150,62 +112,68 @@ export function Contact() {
                     value={formState.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-bg-secondary border border-transparent focus:border-primary focus:bg-bg-primary focus:outline-none transition-all text-text-primary"
-                    placeholder="john@example.com"
+                    className="block w-full px-0 py-3 text-text-primary bg-transparent border-0 border-b border-border-color appearance-none focus:outline-none focus:ring-0 focus:border-text-primary peer transition-colors"
+                    placeholder=" "
                   />
+                  <label
+                    htmlFor="email"
+                    className="absolute text-text-secondary duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >
+                    Email Address
+                  </label>
                 </div>
               </div>
 
-              <div className="mb-6">
-                <label
-                  htmlFor="company"
-                  className="block text-sm font-medium text-text-secondary mb-2"
-                >
-                  Company (Optional)
-                </label>
+              <div className="relative">
                 <input
                   type="text"
                   id="company"
                   name="company"
                   value={formState.company}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-xl bg-bg-secondary border border-transparent focus:border-primary focus:bg-bg-primary focus:outline-none transition-all text-text-primary"
-                  placeholder="Your Company Ltd."
+                  className="block w-full px-0 py-3 text-text-primary bg-transparent border-0 border-b border-border-color appearance-none focus:outline-none focus:ring-0 focus:border-text-primary peer transition-colors"
+                  placeholder=" "
                 />
+                <label
+                  htmlFor="company"
+                  className="absolute text-text-secondary duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >
+                  Company
+                </label>
               </div>
 
-              <div className="mb-8">
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-text-secondary mb-2"
-                >
-                  Project Details
-                </label>
+              <div className="relative mt-4">
                 <textarea
                   id="message"
                   name="message"
                   value={formState.message}
                   onChange={handleChange}
                   required
-                  rows={5}
-                  className="w-full px-4 py-3 rounded-xl bg-bg-secondary border border-transparent focus:border-primary focus:bg-bg-primary focus:outline-none transition-all text-text-primary resize-none"
-                  placeholder="Tell us about your project requirements..."
+                  rows={4}
+                  className="block w-full px-0 py-3 text-text-primary bg-transparent border-0 border-b border-border-color appearance-none focus:outline-none focus:ring-0 focus:border-text-primary peer transition-colors resize-none"
+                  placeholder=" "
                 ></textarea>
+                <label
+                  htmlFor="message"
+                  className="absolute text-text-secondary duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >
+                  Project Details
+                </label>
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-primary text-white font-bold py-4 rounded-xl hover:bg-primary/90 transition-all flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
+                className="mt-6 flex h-[48px] items-center justify-center gap-2 rounded-full bg-primary-color px-8 text-sm font-medium text-bg-primary transition-all hover:opacity-90 w-fit group disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   "Sending..."
                 ) : (
                   <>
-                    Send Message
-                    <Send
-                      size={18}
-                      className="group-hover:translate-x-1 transition-transform"
+                    Send Inquiry
+                    <ArrowRight
+                      size={16}
+                      className="transition-transform group-hover:translate-x-1"
                     />
                   </>
                 )}

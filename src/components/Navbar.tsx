@@ -32,12 +32,12 @@ export function Navbar() {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
         isScrolled
-          ? "bg-bg-primary/80 backdrop-blur-md border-bg-secondary shadow-sm py-4"
-          : "bg-transparent py-6",
+          ? "bg-bg-primary/90 backdrop-blur-md border-border-color py-4"
+          : "bg-transparent border-transparent py-6",
       )}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
@@ -51,7 +51,7 @@ export function Navbar() {
             <a
               key={link.name}
               href={link.href}
-              className="text-text-secondary hover:text-primary transition-colors text-sm font-medium"
+              className="text-text-secondary hover:text-text-primary transition-colors text-sm font-medium"
             >
               {link.name}
             </a>
@@ -61,7 +61,7 @@ export function Navbar() {
         <div className="hidden md:block">
           <a
             href="#contact"
-            className="bg-primary text-white px-6 py-2.5 rounded-full font-medium hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
+            className="bg-primary-color text-bg-primary px-6 py-2.5 rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
           >
             Get a Quote
           </a>
@@ -82,14 +82,14 @@ export function Navbar() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "100vh" }}
               exit={{ opacity: 0, height: 0 }}
-              className="absolute top-0 left-0 right-0 bg-bg-primary pt-24 pb-12 px-6 flex flex-col items-center gap-6 shadow-xl border-b border-bg-secondary"
+              className="absolute top-0 left-0 right-0 bg-bg-primary pt-24 pb-12 px-6 flex flex-col items-center gap-6 border-b border-border-color overflow-hidden"
             >
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-text-primary text-xl font-medium hover:text-primary transition-colors"
+                  className="text-text-primary text-xl font-medium hover:text-text-secondary transition-colors"
                 >
                   {link.name}
                 </a>
@@ -97,7 +97,7 @@ export function Navbar() {
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="mt-4 bg-primary text-white px-8 py-3 rounded-full font-medium hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20 w-full text-center"
+                className="mt-4 bg-primary-color text-bg-primary px-8 py-3 rounded-full font-medium active:opacity-90 transition-opacity w-full text-center"
               >
                 Get a Quote
               </a>

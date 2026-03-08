@@ -2,148 +2,134 @@
 
 import { motion } from "motion/react";
 import {
-  Monitor,
-  Smartphone,
-  ShoppingCart,
-  Palette,
-  Code2,
-  TrendingUp,
-  Settings,
-  Cloud,
-  Search,
-  Wrench,
+  ArrowRight,
+  MonitorSmartphone,
+  Layers,
+  Server,
+  ShieldCheck,
+  Zap,
 } from "lucide-react";
 
-const services = [
+const bentoItems = [
   {
-    icon: <Monitor className="w-8 h-8 text-primary" />,
-    title: "Website Development",
+    title: "Web & Mobile Platforms",
     description:
-      "Custom, responsive websites optimized for performance, SEO, and conversion.",
+      "Native-feeling mobile apps and highly responsive web applications built on modern React architectures.",
+    icon: <MonitorSmartphone className="w-5 h-5 text-text-primary" />,
+    className: "md:col-span-2 md:row-span-2 bg-bg-primary",
+    visual: (
+      <div className="absolute right-0 bottom-0 w-3/4 h-3/4 bg-bg-secondary rounded-tl-2xl border-t border-l border-border-color overflow-hidden flex items-start justify-start p-4">
+        <div className="w-full h-8 bg-border-color/50 rounded-md mb-2" />
+        <div className="w-2/3 h-32 bg-border-color/30 rounded-md" />
+      </div>
+    ),
   },
   {
-    icon: <Code2 className="w-8 h-8 text-primary" />,
-    title: "Web App Development",
+    title: "System Architecture",
     description:
-      "Scalable web applications built with modern frameworks like Next.js and React.",
+      "Scalable backend systems designed to handle millions of requests.",
+    icon: <Server className="w-5 h-5 text-text-primary" />,
+    className: "md:col-span-1 md:row-span-1 bg-bg-secondary",
+    visual: null,
   },
   {
-    icon: <Smartphone className="w-8 h-8 text-primary" />,
-    title: "Mobile App Development",
-    description:
-      "Native and cross-platform mobile experiences for iOS and Android.",
+    title: "UI/UX Engineering",
+    description: "Obsessive attention to interaction design and user flows.",
+    icon: <Layers className="w-5 h-5 text-text-primary" />,
+    className: "md:col-span-1 md:row-span-1 bg-bg-secondary",
+    visual: null,
   },
   {
-    icon: <ShoppingCart className="w-8 h-8 text-primary" />,
-    title: "E-commerce Development",
-    description:
-      "Robust online stores with seamless checkout and inventory management.",
+    title: "Performance Optimization",
+    description: "Sub-second load times and 100 on Lighthouse audits.",
+    icon: <Zap className="w-5 h-5 text-text-primary" />,
+    className: "md:col-span-1 md:row-span-1 bg-bg-primary",
+    visual: null,
   },
   {
-    icon: <Palette className="w-8 h-8 text-primary" />,
-    title: "UI/UX Design",
-    description:
-      "Intuitive, engaging, and accessible interfaces that users love.",
-  },
-  {
-    icon: <Settings className="w-8 h-8 text-primary" />,
-    title: "API Development",
-    description:
-      "Secure, well-documented APIs to connect your services and data.",
-  },
-  {
-    icon: <TrendingUp className="w-8 h-8 text-primary" />,
-    title: "Website Optimization",
-    description: "Lighthouse CI, performance audits, and speed improvements.",
-  },
-  {
-    icon: <Search className="w-8 h-8 text-primary" />,
-    title: "SEO Optimization",
-    description:
-      "Technical SEO and content strategy to rank higher on search engines.",
-  },
-  {
-    icon: <Wrench className="w-8 h-8 text-primary" />,
-    title: "Website Maintenance",
-    description: "Ongoing support, security updates, and regular backups.",
-  },
-  {
-    icon: <Cloud className="w-8 h-8 text-primary" />,
-    title: "Cloud Deployment",
-    description: "AWS, Vercel, and GCP infrastructure setup and management.",
+    title: "Enterprise Security",
+    description: "Bank-grade encryption and compliance out of the box.",
+    icon: <ShieldCheck className="w-5 h-5 text-text-primary" />,
+    className:
+      "md:col-span-2 md:row-span-1 bg-bg-secondary flex flex-row items-center",
+    visual: null,
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5 },
-  },
-};
-
 export function Services() {
   return (
-    <section id="services" className="py-24 bg-bg-secondary relative">
+    <section
+      id="services"
+      className="py-32 bg-bg-primary border-t border-border-color"
+    >
       <div className="container mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5 }}
-            className="text-3xl md:text-5xl font-bold text-text-primary mb-6"
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-2xl"
           >
-            Capabilities & Expertise
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-lg text-text-secondary"
-          >
-            Comprehensive digital solutions tailored to elevate your business in
-            the modern landscape.
-          </motion.p>
+            <h2 className="text-3xl md:text-5xl font-medium text-text-primary mb-6 tracking-tight">
+              A comprehensive technical <br className="hidden md:block" />
+              capability matrix.
+            </h2>
+            <p className="text-lg text-text-secondary leading-relaxed">
+              We don't just build websites; we architect business
+              infrastructure. Our core capabilities span the entire modern
+              digital stack.
+            </p>
+          </motion.div>
         </div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-        >
-          {services.map((service, index) => (
+        {/* Bento Grid layout */}
+        <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[240px] gap-4">
+          {bentoItems.map((item, index) => (
             <motion.div
               key={index}
-              variants={itemVariants}
-              className="bg-bg-primary p-8 rounded-2xl border border-bg-secondary shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
+              initial={{ opacity: 0, scale: 0.98, y: 10 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.05,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className={`relative overflow-hidden rounded-3xl border border-border-color p-8 group transition-colors hover:border-text-secondary/30 ${item.className}`}
             >
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-300">
-                {service.icon}
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="w-10 h-10 rounded-full border border-border-color bg-bg-primary flex items-center justify-center mb-6 shadow-sm">
+                  {item.icon}
+                </div>
+
+                <div
+                  className={`mt-auto ${item.className.includes("flex-row") ? "pointer-events-none" : ""}`}
+                >
+                  <h3 className="text-xl font-medium text-text-primary mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-text-secondary leading-relaxed max-w-sm">
+                    {item.description}
+                  </p>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-text-primary mb-3">
-                {service.title}
-              </h3>
-              <p className="text-text-secondary leading-relaxed">
-                {service.description}
-              </p>
+
+              {/* Abstract Visuals for larger blocks */}
+              {item.visual && (
+                <div className="absolute inset-0 z-0 opacity-50 transition-opacity group-hover:opacity-100 mix-blend-multiply dark:mix-blend-screen overflow-hidden">
+                  <div className="absolute right-[-10%] bottom-[-10%] w-[60%] h-[60%] rounded-tl-3xl bg-bg-secondary border-t border-l border-border-color flex items-start justify-start p-6 transform transition-transform duration-500 group-hover:-translate-x-2 group-hover:-translate-y-2">
+                    <div className="w-full space-y-3">
+                      <div className="w-1/3 h-4 bg-border-color rounded-sm" />
+                      <div className="w-2/3 h-4 bg-border-color/50 rounded-sm" />
+                      <div className="w-1/2 h-4 bg-border-color/50 rounded-sm" />
+                    </div>
+                  </div>
+                </div>
+              )}
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

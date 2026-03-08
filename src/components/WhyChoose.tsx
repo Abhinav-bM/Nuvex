@@ -1,105 +1,84 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Zap, Server, Code, Search, Smartphone, Layers } from "lucide-react";
 
-const features = [
+const reasons = [
   {
-    icon: <Zap className="w-6 h-6 text-white" />,
-    title: "Fast Development",
+    title: "Engineering Excellence",
     description:
-      "Rapid iteration cycles and agile methodologies to launch your product faster.",
+      "We don't compromise on code quality. Every system is built to scale gracefully under pressure.",
   },
   {
-    icon: <Server className="w-6 h-6 text-white" />,
-    title: "Scalable Architecture",
+    title: "Velocity & Precision",
     description:
-      "Built on modern cloud infrastructure designed to grow with your business needs.",
+      "Rapid iteration cycles combined with rigorous testing protocols to ship reliable software faster.",
   },
   {
-    icon: <Code className="w-6 h-6 text-white" />,
-    title: "Clean Code Standards",
+    title: "Transparent Architecture",
     description:
-      "Maintainable, well-documented codebases following industry best practices.",
-  },
-  {
-    icon: <Search className="w-6 h-6 text-white" />,
-    title: "SEO Friendly",
-    description:
-      "Technical SEO baked in from day one to ensure maximum search visibility.",
-  },
-  {
-    icon: <Smartphone className="w-6 h-6 text-white" />,
-    title: "Mobile First Design",
-    description:
-      "Flawless user experiences across all devices, from mobile to ultra-wide screens.",
-  },
-  {
-    icon: <Layers className="w-6 h-6 text-white" />,
-    title: "Modern Tech Stack",
-    description:
-      "Leveraging the latest technologies like Next.js, React, and Tailwind CSS.",
+      "No black boxes. We build systems you understand, own, and can maintain indefinitely.",
   },
 ];
 
 export function WhyChoose() {
   return (
-    <section className="py-24 bg-bg-primary">
+    <section
+      id="why-choose"
+      className="py-32 bg-bg-secondary border-t border-border-color"
+    >
       <div className="container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row items-start gap-16">
-          <div className="lg:w-1/3">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5 }}
-              className="sticky top-32"
+        <div className="flex flex-col lg:flex-row gap-20">
+          <motion.div
+            initial={{ opacity: 0, x: -15 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:w-5/12"
+          >
+            <h2 className="text-3xl md:text-5xl font-medium text-text-primary mb-6 tracking-tight">
+              Built for <br /> performance.
+            </h2>
+            <p className="text-lg text-text-secondary leading-relaxed font-light mb-8">
+              We partner with teams that treat their software infrastructure as
+              a core competitive advantage.
+            </p>
+            <a
+              href="#services"
+              className="text-sm font-medium text-text-primary border-b border-text-primary pb-1 hover:text-text-secondary hover:border-text-secondary transition-colors inline-block"
             >
-              <h2 className="text-3xl md:text-5xl font-bold text-text-primary mb-6">
-                Why Choose <span className="text-primary">NUVEX</span>
-              </h2>
-              <p className="text-lg text-text-secondary mb-8 leading-relaxed">
-                We go beyond just writing code. We act as your technical
-                partner, focused on delivering solutions that drive actual
-                business value.
-              </p>
-              <div className="flex items-center gap-4 p-4 rounded-xl bg-bg-secondary border border-primary/20">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                  <span className="text-xl font-bold text-primary">10+</span>
-                </div>
-                <div>
-                  <p className="font-semibold text-text-primary">
-                    Years Experience
-                  </p>
-                  <p className="text-sm text-text-secondary">
-                    Combined team expertise
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
+              Explore Our Capabilities
+            </a>
+          </motion.div>
 
-          <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6 scale-100 lg:scale-[1.02]">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-bg-secondary p-8 rounded-2xl hover:bg-bg-primary hover:shadow-xl transition-all duration-300 border border-transparent hover:border-bg-secondary group"
-              >
-                <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center mb-6 shadow-md shadow-primary/20 group-hover:scale-110 transition-transform duration-300">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-bold text-text-primary mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-text-secondary leading-relaxed">
-                  {feature.description}
-                </p>
-              </motion.div>
-            ))}
+          <div className="lg:w-7/12">
+            <div className="grid grid-cols-1 gap-12">
+              {reasons.map((reason, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.1,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                  className="flex flex-col md:flex-row gap-6 md:gap-12"
+                >
+                  <div className="text-sm font-semibold text-text-secondary font-mono pt-1">
+                    0{index + 1}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-medium text-text-primary mb-3">
+                      {reason.title}
+                    </h3>
+                    <p className="text-text-secondary leading-relaxed font-light max-w-md">
+                      {reason.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

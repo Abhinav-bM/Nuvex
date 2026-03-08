@@ -4,113 +4,78 @@ import { motion } from "motion/react";
 
 const steps = [
   {
-    number: "01",
-    title: "Discovery",
+    title: "Discovery & Architecture",
     description:
-      "We learn about your business, target audience, and project goals to define a clear scope and strategy.",
+      "We map out the system boundaries, data models, and infrastructure requirements before writing a single line of code.",
   },
   {
-    number: "02",
-    title: "Planning",
+    title: "Iterative Engineering",
     description:
-      "Creating sitemaps, user flows, and technical architecture to ensure a solid foundation.",
+      "Weekly sprints with continuous deployment. You see the product evolve in real-time, every step of the way.",
   },
   {
-    number: "03",
-    title: "Design",
+    title: "Quality Assurance",
     description:
-      "Crafting intuitive and modern UI/UX designs that align with your brand identity.",
+      "Automated test suites, manual edge-case testing, and performance profiling ensure the system holds up under stress.",
   },
   {
-    number: "04",
-    title: "Development",
+    title: "Deployment & Scale",
     description:
-      "Writing clean, scalable code using modern technologies and best practices.",
-  },
-  {
-    number: "05",
-    title: "Testing",
-    description:
-      "Rigorous quality assurance, performance optimization, and cross-browser testing.",
-  },
-  {
-    number: "06",
-    title: "Launch",
-    description:
-      "Deploying your project to production and providing ongoing support and maintenance.",
+      "Zero-downtime deployments to modern edge-first infrastructure. Built to handle traffic spikes naturally.",
   },
 ];
 
 export function Process() {
   return (
-    <section id="process" className="py-24 bg-bg-primary overflow-hidden">
+    <section className="py-32 bg-bg-primary border-t border-border-color">
       <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-20"
-        >
-          <h2 className="text-3xl md:text-5xl font-bold text-text-primary mb-6">
-            Our Development Process
-          </h2>
-          <p className="text-lg text-text-secondary">
-            A proven, transparent approach to bringing your digital vision to
-            life.
-          </p>
-        </motion.div>
-
-        <div className="relative max-w-4xl mx-auto">
-          {/* Vertical Line */}
-          <div className="absolute left-[28px] md:left-1/2 top-0 bottom-0 w-0.5 bg-bg-secondary transform md:-translate-x-1/2" />
-
-          {/* Animated Progress Line */}
-          <motion.div
-            initial={{ height: 0 }}
-            whileInView={{ height: "100%" }}
+        <div className="max-w-2xl mx-auto text-center mb-20">
+          <motion.h2
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="absolute left-[28px] md:left-1/2 top-0 w-0.5 bg-primary transform md:-translate-x-1/2 z-0"
-          />
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="text-3xl md:text-5xl font-medium text-text-primary mb-6 tracking-tight"
+          >
+            How we build.
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="text-lg text-text-secondary font-light"
+          >
+            A rigorous, engineering-first approach to software development.
+          </motion.p>
+        </div>
 
-          <div className="space-y-12">
-            {steps.map((step, index) => {
-              const isEven = index % 2 === 0;
+        <div className="max-w-4xl mx-auto">
+          {steps.map((step, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="relative flex flex-col md:flex-row gap-8 md:gap-16 pb-16 last:pb-0 border-b border-border-color last:border-0 mb-16 last:mb-0"
+            >
+              <div className="md:w-1/4 shrink-0">
+                <span className="text-sm font-semibold tracking-widest uppercase text-text-secondary">
+                  Phase 0{index + 1}
+                </span>
+              </div>
 
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: isEven ? -50 : 50, y: 20 }}
-                  whileInView={{ opacity: 1, x: 0, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  className={`relative flex items-center ${isEven ? "md:flex-row-reverse" : ""}`}
-                >
-                  {/* Timeline Node */}
-                  <div className="absolute left-0 md:left-1/2 w-14 h-14 rounded-full bg-bg-primary border-4 border-primary flex items-center justify-center transform md:-translate-x-1/2 z-10 shadow-lg shadow-primary/20">
-                    <span className="font-bold text-primary">
-                      {step.number}
-                    </span>
-                  </div>
-
-                  {/* Content Container */}
-                  <div
-                    className={`ml-20 md:ml-0 md:w-1/2 ${isEven ? "md:pr-16 md:text-right" : "md:pl-16"}`}
-                  >
-                    <div className="bg-bg-secondary p-8 rounded-2xl border border-transparent hover:border-primary/20 hover:shadow-lg transition-all duration-300">
-                      <h3 className="text-2xl font-bold text-text-primary mb-3">
-                        {step.title}
-                      </h3>
-                      <p className="text-text-secondary leading-relaxed">
-                        {step.description}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
+              <div className="md:w-3/4">
+                <h3 className="text-2xl font-medium text-text-primary mb-4">
+                  {step.title}
+                </h3>
+                <p className="text-lg text-text-secondary leading-relaxed font-light">
+                  {step.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
