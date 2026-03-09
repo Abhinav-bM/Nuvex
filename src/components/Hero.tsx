@@ -17,7 +17,7 @@ export function Hero() {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-5xl mx-auto flex flex-col items-center text-center">
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
@@ -25,7 +25,7 @@ export function Hero() {
           >
             <span className="w-2 h-2 rounded-full bg-text-primary animate-pulse" />
             Nuvex V2.0
-          </motion.div>
+          </motion.div> */}
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -55,7 +55,7 @@ export function Hero() {
           >
             <a
               href="#contact"
-              className="group relative flex h-12 items-center justify-center gap-2 rounded-full bg-primary-color px-8 text-sm font-medium text-bg-primary transition-all hover:opacity-90 w-full sm:w-auto"
+              className="group relative flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-8 text-sm font-medium text-bg-primary transition-all hover:opacity-90 w-full sm:w-auto"
             >
               Start Building
               <ArrowRight
